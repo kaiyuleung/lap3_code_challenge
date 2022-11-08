@@ -1,12 +1,22 @@
 import React from 'react';
-import logo from './logo.svg';
-import { Counter } from './features/counter/Counter';
+
+import { Routes, Route } from 'react-router-dom';
+
 import './App.css';
+import { Home, Dashboard, Repo, NotFound } from './pages';
 
 function App() {
   return(
     <>
-    
+    <h1>GitHub-Stalker</h1>
+    <main>
+      <Routes>
+        <Route path="/" element={<Home />}/>
+        <Route path="/dashboard" element={<Dashboard />}/>
+        <Route path="/repo" element={<Repo />}/>
+        <Route path="*" element={<NotFound />}/>
+      </Routes>
+    </main>
     </>
   )
 }
@@ -15,6 +25,7 @@ export default App;
 
 
 //* Reference:
+// import { Counter } from './features/counter/Counter';
 // return (
 //   <div className="App">
 //     <header className="App-header">
