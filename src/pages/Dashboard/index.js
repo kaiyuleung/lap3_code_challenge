@@ -5,7 +5,7 @@ export default function Dashboard({user}) {
         <div>
             <div>
                 <h2>{user}'s Dashboard</h2>
-                <p>Not {user}? <a>Search for a different GitHub account</a></p>
+                <p>Not {user}? <a href='#'>Search for a different GitHub account</a></p>
             </div>
         </div>
     )

@@ -3,6 +3,7 @@ import React from 'react'
 export default function Home() {
     function handleSubmit(e) {
         e.preventDefault()
+        e.target.reset()
     }
 
     return (
@@ -13,8 +14,8 @@ export default function Home() {
                 <label>
                     github.com/
                     <input type='text' placeholder='username' required autoFocus></input>
-                    <input type='submit' value='Search'></input>
                 </label>
+                <input type='submit' value='Search'></input>
             </form>
         </div>
     )
