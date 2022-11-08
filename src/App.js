@@ -3,12 +3,13 @@ import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 
 import './App.css';
+import { NavBar } from './components';
 import { Home, Dashboard, Repo, NotFound } from './pages';
 
 function App() {
   return(
     <>
-    <h1>GitHub-Stalker</h1>
+    <NavBar />
     <main>
       <Routes>
         <Route path="/" element={<Home />}/>
