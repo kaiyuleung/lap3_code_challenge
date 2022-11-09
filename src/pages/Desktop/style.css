@@ -3,7 +3,6 @@
 }
 
 #top {
-    height: 64px;
     background: #333f80;
 }
 
@@ -27,18 +26,15 @@
 }
 
 .col {
-    flex: 1;
-    margin: 8px;
+    flex: 0 0 33.33%;
 }
 
 .card {
     border: 2px solid rgb(119, 119, 119);
-    padding: 8px;
     border-radius: 4px;
 }
 
 #middle, #right {
-    width: 100%;
     height: 100%;
 }
 
