@@ -9,11 +9,14 @@ import './App.css';
 import { NavBar } from './components';
 import { Home, Dashboard, Repo, NotFound, Desktop } from './pages';
 
+//* Breakpoint
+const Breakpoint = 1240;
+
 const useDesktopMediaQuery = () =>
-useMediaQuery({ query: "(min-width: 1280px)" })
+useMediaQuery({ query: `(min-width: ${Breakpoint}px)` })
 
 const useTabletAndBelowMediaQuery = () =>
-useMediaQuery({ query: "(max-width: 1279px)" })
+useMediaQuery({ query: `(max-width: ${Breakpoint-1}px)` })
 
 const UBP = ({ children }) => {
 const isDesktop = useDesktopMediaQuery()
