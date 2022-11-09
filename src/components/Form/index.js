@@ -8,6 +8,7 @@ export default function Form({getResult}) {
     const handleSubmit = (e) => {
         e.preventDefault();
         getResult(username)
+        setUsername("");
     }
 
     const handleChange = (e) => {

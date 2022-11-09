@@ -1,5 +1,5 @@
 const initState = {
-    username: "Crowy92",
+    username: "",
     results: [{
         id: "",
         name: "",
@@ -17,10 +17,13 @@ const initState = {
 const searchReducer = (state=initState, action) => {
     switch(action.type){
         case 'LOADING':
-            return { ...state, username: action.payload, loading: true };
+            return { ...state, loading: true };
         case 'LOAD_RESULT':
-            console.log(state.username, state.results.length);
-            return { ...state, results: action.payload, loading: false, error: false };
+            return { ...state, 
+                username: action.payload.username, 
+                results: action.payload.results, 
+                loading: false, 
+                error: false };
         case 'SET_ERROR':
             return { ...state, error: action.payload, loading: false }
         default:

@@ -1,14 +1,14 @@
 import axios from 'axios';
 
-const loading = username => ({ type: 'LOADING', payload: username });
+const loading = () => ({ type: 'LOADING'});
 
-const loadResult = results => ({ type: 'LOAD_RESULT', payload: results });
+const loadResult = ({username, results}) => ({ type: 'LOAD_RESULT', payload: {username, results} });
 
 export const getResult = searchTerm => {
     return async dispatch => {
-        dispatch(loading(searchTerm));
+        dispatch(loading());
         try {
-            const rawRepoData = await fetchRepo("Crowy92");
+            const rawRepoData = await fetchRepo(searchTerm);
             const RepoData = rawRepoData.map(r => {
                 return{
                 id: r.id,
@@ -21,7 +21,7 @@ export const getResult = searchTerm => {
                 html_url: r.html_url
                 }
             })
-            dispatch(loadResult(RepoData))
+            dispatch(loadResult({username: rawRepoData[0].owner.login, results: RepoData}))
         } catch (err) {
             console.warn(err.message);
             dispatch({ type: 'SET_ERROR', payload: err.message })
