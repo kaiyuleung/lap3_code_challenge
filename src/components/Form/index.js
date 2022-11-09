@@ -1,4 +1,5 @@
 import React from "react";
+import './style.css';
 
 class Form extends React.Component {
     constructor(props) {
@@ -21,8 +22,8 @@ class Form extends React.Component {
     render() {
         return (
             <form onSubmit={this.handleSubmit}>
-                <label>
-                    GitHub username:
+                <label>GitHub username:
+                    <br />
                     <input type="text" value={this.state.value} onChange={this.handleChange} />
                 </label>
                 <input type="submit" value="Submit" />

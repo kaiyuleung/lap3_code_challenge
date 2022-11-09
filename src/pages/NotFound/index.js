@@ -1,7 +1,10 @@
 import React from 'react'
+import { BackBtn } from '../../components'
 
 export default function NotFound() {
     return (
-        <div>NotFound</div>
+        <div>NotFound
+            <BackBtn />
+        </div>
     )
 }
