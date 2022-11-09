@@ -3,7 +3,7 @@ import { BackBtn } from '../../components'
 
 export default function Dashboard({user}) {
     return (
-        <div>
+        <div >
             <BackBtn />
             <div>
                 <h2>{user}'s Dashboard</h2>
