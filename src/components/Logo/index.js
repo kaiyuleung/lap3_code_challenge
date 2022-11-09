@@ -4,9 +4,11 @@ const Logo = ({isHome}) => {
     return (
         <div>
             <span style={{fontSize: isHome? "72px" : "23px"}}>GitHub Stalker</span>
-            <p style={{display: isHome? "block" : "none"}}>An App to <em>spy</em> on a GitHub user</p>
+            <h2>Choose a GitHub user to <span style={{
+                display: isHome? "inline" : "none", 
+                textDecoration: 'line-through'}}>stalk</span> follow</h2>
         </div>
     )
 }
-// {isHome ? "initial" : "none"}
+
 export default Logo;
