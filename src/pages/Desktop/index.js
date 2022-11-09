@@ -29,9 +29,6 @@ export default function Desktop() {
                     </div>
                 </div>
             </div>
-            <div id='left-bottom' style={{backgroundColor:"beige"}}>left-bottom</div>
-            <div id='middle' style={{backgroundColor:"wheat"}}>middle</div>
-            <div id='right' style={{backgroundColor:"lightskyblue"}}>right</div>
 
             {/* <Home />
             <Dashboard />
