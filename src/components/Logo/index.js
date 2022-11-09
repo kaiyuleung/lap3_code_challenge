@@ -1,9 +1,11 @@
 import React from 'react'
 
-export default function NavBar () {
+const Logo = () => {
     return (
         <div>
             <span>GitHub Stalker</span>
         </div>
     )
 }
+
+export default Logo;

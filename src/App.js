@@ -1,23 +1,51 @@
 import React from 'react';
+import { useMediaQuery } from 'react-responsive';
 
+//* Router Stuff
 import { Routes, Route } from 'react-router-dom';
 
+//* Pages, Components and Styles
 import './App.css';
 import { NavBar } from './components';
-import { Home, Dashboard, Repo, NotFound } from './pages';
+import { Home, Dashboard, Repo, NotFound, Desktop } from './pages';
+
+const useDesktopMediaQuery = () =>
+useMediaQuery({ query: "(min-width: 1280px)" })
+
+const useTabletAndBelowMediaQuery = () =>
+useMediaQuery({ query: "(max-width: 1279px)" })
+
+const UBP = ({ children }) => {
+const isDesktop = useDesktopMediaQuery()
+
+return isDesktop ? children : null
+}
+
+const LBP = ({ children }) => {
+const isTabletAndBelow = useTabletAndBelowMediaQuery()
+
+return isTabletAndBelow ? children : null
+}
+
 
 function App() {
+  
   return(
     <>
-    <NavBar />
-    <main>
-      <Routes>
-        <Route path="/" element={<Home />}/>
-        <Route path="/dashboard" element={<Dashboard />}/>
-        <Route path="/repo" element={<Repo />}/>
-        <Route path="*" element={<NotFound />}/>
-      </Routes>
-    </main>
+    <LBP>
+      <main>
+        <Routes>
+          <Route path="/" element={<Home />}/>
+          <Route path="/dashboard" element={<Dashboard />}/>
+          <Route path="/repo" element={<Repo />}/>
+          <Route path="*" element={<NotFound />}/>
+        </Routes>
+      </main>
+    </LBP>
+
+    <UBP>
+      <Desktop />
+    </UBP>
     </>
   )
 }
