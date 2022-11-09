@@ -1,11 +1,10 @@
 import React from 'react'
 import RepoItem from '../RepoItem'
 
-export default function RepoList() {
+export default function RepoList({results}) {
     return (
-        <div>
-            {/* Fetch from api, map and render each RepoItem */}
-            <RepoItem Name={"authCodealong"} URL={"https://github.com/Crowy92/authCodealong/"}/>
+        <div style={{color: "white"}}>Public Repositories
+            { results.map(r => <RepoItem key={r.id} Name={r.name} URL={r.html_url}/>) }
         </div>
     )
 }

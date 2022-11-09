@@ -1,38 +1,52 @@
 import React from 'react'
 import { Form, UserStats, Logo, RepoList, RepoInfo } from '../../components'
-import Breadcrum from '../../components/Breadcrumb';
+import Breadcrumb from '../../components/Breadcrumb';
 import './style.css';
 
+import { useSelector, useDispatch } from 'react-redux';
+import { getResult } from '../../actions';
+
+
 export default function Desktop() {
+
+    //* Get state from reducer:
+    const username = useSelector(state => state.username);
+    const results = useSelector(state => state.results);
+    const error = useSelector(state => state.error);
+
+    const dispatch = useDispatch();
+    
+    const search = searchTerm => dispatch(getResult(searchTerm));
+
     return (
         <div id='desktop-app' className='full-page flex-col'>
             <div id='top'>
                 <Logo isHome={true}/>
                 <div>
-                    <Breadcrum Name="Crowy92" URL="https://github.com/Crowy92/" />
+                    <Breadcrumb Name={username} URL={`https://github.com/${username}/`} />
                 </div>
                 <div>
-                    <Breadcrum Name="Crowy92" URL="https://github.com/Crowy92/"/>
-                    <Breadcrum Name="/authCodealong" URL="https://github.com/Crowy92/authCodealong/"/>
+                    <Breadcrumb Name={username} URL={`https://github.com/${username}/`}/>
+                    {/* <Breadcrumb Name="/authCodealong" URL="https://github.com/Crowy92/authCodealong/"/> */}
                 </div>
             </div>
             <div className='flex-row grow content'>
                 <div className='col'>
                     <div id='left-up' className='card'>
-                        <Form />
+                        <Form getResult={search}/>
                     </div>
                     <div id='left-bottom' className='card'>
-                        <UserStats />
+                        <UserStats username={username} />
                     </div>
                 </div>
                 <div className='col'>
                     <div id='middle' className='card'>
-                        <RepoList />
+                        <RepoList results={results}/>
                     </div>
                 </div>
                 <div className='col'>
                     <div id='right' className='card'>
-                        <RepoInfo />
+                        {/* <RepoInfo /> */}
                     </div>
                 </div>
             </div>
