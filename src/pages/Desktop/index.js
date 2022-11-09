@@ -9,22 +9,22 @@ export default function Desktop() {
             <div id='top'>
                 <Logo isHome={true}/>
             </div>
-            <div className='flex-row grow'>
+            <div className='flex-row grow content'>
                 <div className='col'>
-                    <div id='left-up' className='card' style={{backgroundColor:"pink"}}>
+                    <div id='left-up' className='card'>
                         <Form />
                     </div>
-                    <div id='left-bottom' className='card' style={{backgroundColor:"beige"}}>
+                    <div id='left-bottom' className='card'>
                         <UserStats />
                     </div>
                 </div>
                 <div className='col'>
-                    <div id='middle' className='card' style={{backgroundColor:"wheat"}}>
+                    <div id='middle' className='card'>
                         
                     </div>
                 </div>
                 <div className='col'>
-                    <div id='right' className='card' style={{backgroundColor:"lightskyblue"}}>
+                    <div id='right' className='card'>
                         
                     </div>
                 </div>

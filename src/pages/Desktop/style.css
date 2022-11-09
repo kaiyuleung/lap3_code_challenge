@@ -1,9 +1,17 @@
+:root {
+    --p-sm: 8px;
+    --p-md: 16px;
+    --p-lg: 32px;
+}
+
 #desktop-app{
-    background: #803333;
+    background: #010409;
 }
 
 #top {
-    background: #333f80;
+    background: #161b22;
+    color: #f0f6fc;
+    padding-left: var(--p-sm);
 }
 
 .full-page {
@@ -27,11 +35,19 @@
 
 .col {
     flex: 0 0 33.33%;
+    padding-left: var(--p-md);
+}
+
+.content {
+    padding: var(--p-md);
+    padding-left: 0;
 }
 
 .card {
-    border: 2px solid rgb(119, 119, 119);
-    border-radius: 4px;
+    border: 1px solid #30363d;
+    background: #0d1117;
+    border-radius: 6px;
+    overflow: hidden;
 }
 
 #middle, #right {
@@ -39,9 +55,10 @@
 }
 
 #left-up {
-    height: 60%;
+    height: calc(60% - var(--p-md));
 }
 
 #left-bottom {
     height: 40%;
+    margin-top: var(--p-md);
 }
