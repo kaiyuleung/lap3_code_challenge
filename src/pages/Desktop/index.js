@@ -46,7 +46,14 @@ export default function Desktop() {
                 </div>
                 <div className='col'>
                     <div id='right' className='card'>
-                        {/* <RepoInfo /> */}
+                        <RepoInfo />
+                        {/*name, 
+                        forks, 
+                        stargazers_count, 
+                        watchers_count,
+                        updated_at, 
+                        created_at,
+                        html_url */}
                     </div>
                 </div>
             </div>
