@@ -6,11 +6,11 @@
 
 #desktop-app{
     background: #010409;
+    color: #f0f6fc;
 }
 
 #top {
     background: #161b22;
-    color: #f0f6fc;
     padding-left: var(--p-sm);
     display: flex;
     justify-content: space-between;
@@ -62,7 +62,7 @@
     border: 1px solid #30363d;
     background: #0d1117;
     border-radius: 6px;
-    /* padding: var(--p-md); */
+    padding: var(--p-md);
     position: relative;
     min-height: 10%;
     max-height: 100%;
@@ -98,8 +98,6 @@
     top: 0;
     left: 0;
     width: 100%;
-    background: #161b22;
-    padding: 8px;
     color: white;
 }
 

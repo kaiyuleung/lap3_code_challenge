@@ -1,25 +1,30 @@
 import React, { useEffect, useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux';
 import { BackBtn, Breadcrumb, Logo, UserStats, RepoList, Sort } from '../../components'
+import './style.css'
 
 export default function Dashboard({setRepo}) {
-
     const username = useSelector(state => state.username);
     const userIconURL = useSelector(state => state.userIconURL);
     const results = useSelector(state => state.results);
 
-
-
-
     return (
-        < >
-            <Logo isHome={false} />
-            <BackBtn />
-            <Breadcrumb Name={username} URL={`https://github.com/${username}/`} />
-            <UserStats username={username} userIconURL={userIconURL}/>
-            <Sort />
-            <RepoList results={results} setRepo={setRepo}/>
-        </>
+        <div className='dashboard'>
+            <header>
+                <Logo isHome={false} />
+                <BackBtn />
+                <Breadcrumb Name={username} URL={`https://github.com/${username}/`} />
+            </header>
+            <main>
+                <div>
+                    <UserStats username={username} userIconURL={userIconURL}/>
+                </div>
+                <div>
+                    <Sort />
+                    <RepoList results={results} setRepo={setRepo}/>
+                </div>
+            </main>
+        </div>
     )
 }
 
