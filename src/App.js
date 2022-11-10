@@ -6,7 +6,6 @@ import { Routes, Route } from 'react-router-dom';
 
 //* Pages, Components and Styles
 import './App.css';
-import { NavBar } from './components';
 import { Home, Dashboard, Repo, NotFound, Desktop } from './pages';
 
 //* Breakpoint for responsiveness

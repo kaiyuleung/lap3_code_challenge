@@ -11,14 +11,14 @@ export const getResult = searchTerm => {
             const rawRepoData = await fetchRepo(searchTerm);
             const RepoData = rawRepoData.map(r => {
                 return{
-                id: r.id,
-                name: r.name, 
-                forks: r.forks,
-                stargazers_count: r.stargazers_count,
-                watchers_count: r.watchers_count,
-                updated_at: r.updated_at,
-                created_at: r.created_at,
-                html_url: r.html_url
+                    id: r.id,
+                    name: r.name, 
+                    forks: r.forks,
+                    stargazers_count: r.stargazers_count,
+                    watchers_count: r.watchers_count,
+                    updated_at: r.updated_at,
+                    created_at: r.created_at,
+                    html_url: r.html_url
                 }
             })
             dispatch(loadResult({username: rawRepoData[0].owner.login, results: RepoData}))

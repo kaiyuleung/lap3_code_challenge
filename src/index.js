@@ -12,14 +12,11 @@ import './index.css';
 //* Routers
 import { BrowserRouter } from 'react-router-dom';
 
-//! DO NOT DELETE THAMIEM'S WRAPPER ELEMENT
 createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <Provider store={store}>
       <BrowserRouter>
-        {/* thamiem-n */} 
         <App />
-        {/* thamiem-n */}
       </BrowserRouter>
     </Provider>
   </React.StrictMode>

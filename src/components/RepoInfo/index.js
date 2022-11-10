@@ -1,22 +1,14 @@
 import React from 'react'
 
-export default function RepoInfo({
-    name = "example", 
-    forks = 0, 
-    stargazers_count = 0, 
-    watchers_count = 0,
-    updated_at = "now", 
-    created_at = "now",
-    html_url = "#"
-}) {
+export default function RepoInfo({repo}) {
         return (
             <div style={{color: "white"}}>RepoInfo
-                <p><a href={html_url}>{name}</a></p>
-                <p>{forks}</p>
-                <p>{stargazers_count}</p>
-                <p>{watchers_count}</p>
-                <p>{updated_at}</p>
-                <p>{created_at}</p>
+                <p><a href={repo.html_url}>{repo.name}</a></p>
+                <p>{repo.forks}</p>
+                <p>{repo.stargazers_count}</p>
+                <p>{repo.watchers_count}</p>
+                <p>{repo.updated_at}</p>
+                <p>{repo.created_at}</p>
             </div>
         )
 }

@@ -12,6 +12,17 @@ import { getResult } from '../../actions';
 
 export default function Desktop() {
 
+    //* state for repoInfo
+    const [repo, setRepo] = useState({
+        name: "example", 
+        forks: 0, 
+        stargazers_count: 0, 
+        watchers_count: 0,
+        updated_at: "now", 
+        created_at: "now",
+        html_url: "#"
+    })
+
     //* Get state from reducer:
     const username = useSelector(state => state.username);
     const results = useSelector(state => state.results);
@@ -39,7 +50,7 @@ export default function Desktop() {
                             <Form getResult={search}/>
                         </div>
                         <div id='left-bottom' className=''>
-                            <UserStats username={username} />
+                            <UserStats username={username||"Crowy92"} />
                         </div>
                     </div>
                     <div className='col'>
@@ -48,20 +59,13 @@ export default function Desktop() {
                                 <h3>Public repositories</h3>
                             </div>
                             <div className='scroll'>
-                                <RepoList results={results}/>
+                                <RepoList results={results} setRepo={setRepo}/>
                             </div>
                         </div>
                     </div>
                     <div className='col'>
                         <div id='right' className='card'>
-                            <RepoInfo />
-                            {/*name, 
-                            forks, 
-                            stargazers_count, 
-                            watchers_count,
-                            updated_at, 
-                            created_at,
-                            html_url */}
+                            <RepoInfo repo={repo} />
                         </div>
                     </div>
                 </div>
