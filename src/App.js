@@ -39,7 +39,7 @@ function App() {
       <main>
         <Routes>
           <Route path="/" element={<Home />}/>
-          <Route path="/dashboard" element={<Dashboard />}/>
+          <Route path="/:username" element={<Dashboard />}/>
           <Route path="/repo" element={<Repo />}/>
           <Route path="*" element={<NotFound />}/>
         </Routes>

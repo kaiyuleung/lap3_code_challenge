@@ -1,9 +1,17 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom'
 
 export default function Home() {
+    const navigate = useNavigate()
+
     function handleSubmit(e) {
         e.preventDefault()
-        e.target.reset()
+
+        const form = e.target
+        const data = Object.fromEntries(new FormData(form))
+        form.reset()
+
+        navigate(`/${data.username}`)
     }
 
     return (
@@ -13,7 +21,7 @@ export default function Home() {
             <form onSubmit={handleSubmit}>
                 <label>
                     github.com/
-                    <input type='text' placeholder='username' required autoFocus></input>
+                    <input type='text' name='username' placeholder='username' required autoFocus></input>
                 </label>
                 <input type='submit' value='Search'></input>
             </form>
