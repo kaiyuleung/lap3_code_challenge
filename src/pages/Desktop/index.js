@@ -1,7 +1,7 @@
 import React from 'react'
 
 //* components and styles
-import { Form, UserStats, Logo, RepoList, RepoInfo } from '../../components'
+import { Form, UserStats, Logo, RepoList, RepoInfo, Sort } from '../../components'
 import './style.css';
 
 //* redux thing
@@ -47,6 +47,7 @@ export default function Desktop({ repo, setRepo }) {
                         <div id='middle' className='results card'>
                             <div className='sticky top'>
                                 <h3>Public repositories</h3>
+                                <Sort />
                             </div>
                             <div className='scroll'>
                                 <RepoList results={results} setRepo={setRepo}/>

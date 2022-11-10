@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux';
-import { BackBtn, Breadcrumb, Logo, UserStats, RepoList } from '../../components'
+import { BackBtn, Breadcrumb, Logo, UserStats, RepoList, Sort } from '../../components'
 
 export default function Dashboard({setRepo}) {
 
@@ -17,6 +17,7 @@ export default function Dashboard({setRepo}) {
             <BackBtn />
             <Breadcrumb Name={username} URL={`https://github.com/${username}/`} />
             <UserStats username={username} userIconURL={userIconURL}/>
+            <Sort />
             <RepoList results={results} setRepo={setRepo}/>
         </>
     )

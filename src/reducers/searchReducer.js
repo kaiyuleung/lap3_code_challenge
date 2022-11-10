@@ -15,6 +15,31 @@ const initState = {
     error: false
 };
 
+function sort(data,type){
+    switch (type){
+        case 'stargazers_count':
+            return (data.sort((a,b) => {
+                if(a.stargazers_count > b.stargazers_count){return -1}
+                else if (a.stargazers_count < b.stargazers_count){return 1}
+                else {return 0}}))
+        case 'watchers_count':
+            return (data.sort((a,b) => {
+                if(a.watchers_count > b.watchers_count){return -1}
+                else if (a.watchers_count < b.watchers_count){return 1}
+                else {return 0}}))
+        case 'created_at':
+            return (data.sort((a,b) => {
+                if(new Date(a.created_at).getTime() > new Date(b.created_at).getTime()){return 1}
+                else if (new Date(a.created_at).getTime() < new Date(b.created_at).getTime()){return -1}
+                else {return 0}}))
+        default:
+            return (data.sort((a,b) => {
+                if(a.name.toLowerCase() > b.name.toLowerCase()){return 1}
+                else if (a.name.toLowerCase() < b.name.toLowerCase()){return -1}
+                else {return 0}}))
+    }
+}
+
 const searchReducer = (state=initState, action) => {
     switch(action.type){
         case 'LOADING':
@@ -28,6 +53,10 @@ const searchReducer = (state=initState, action) => {
                 error: false };
         case 'SET_ERROR':
             return { ...state, error: action.payload, loading: false }
+        case 'SORT':
+            return { ...state,
+            results: sort(state.results, action.payload)
+            }
         default:
             return state;
     };
