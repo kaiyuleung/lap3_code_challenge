@@ -1,5 +1,6 @@
 const initState = {
-    username: "",
+    username: "example",
+    userIconURL: "",
     results: [{
         id: "",
         name: "",
@@ -11,7 +12,7 @@ const initState = {
         html_url: ""
     }],
     loading: false,
-    error: ""
+    error: false
 };
 
 const searchReducer = (state=initState, action) => {
@@ -20,7 +21,8 @@ const searchReducer = (state=initState, action) => {
             return { ...state, loading: true };
         case 'LOAD_RESULT':
             return { ...state, 
-                username: action.payload.username, 
+                username: action.payload.userInfo.username, 
+                userIconURL: action.payload.userInfo.userIconURL,
                 results: action.payload.results, 
                 loading: false, 
                 error: false };

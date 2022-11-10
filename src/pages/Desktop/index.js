@@ -1,8 +1,7 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 
 //* components and styles
 import { Form, UserStats, Logo, RepoList, RepoInfo } from '../../components'
-import Breadcrumb from '../../components/Breadcrumb';
 import './style.css';
 
 //* redux thing
@@ -13,44 +12,41 @@ import { getResult } from '../../actions';
 export default function Desktop() {
 
     //* state for repoInfo
-    const [repo, setRepo] = useState({
-        name: "example", 
-        forks: 0, 
-        stargazers_count: 0, 
-        watchers_count: 0,
-        updated_at: "now", 
-        created_at: "now",
-        html_url: "#"
-    })
+    const [repo, setRepo] = useState("Please select one repo to see the stats.")
 
     //* Get state from reducer:
     const username = useSelector(state => state.username);
+    const userIconURL = useSelector(state => state.userIconURL);
     const results = useSelector(state => state.results);
     const error = useSelector(state => state.error);
 
     const dispatch = useDispatch();
-    const search = searchTerm => dispatch(getResult(searchTerm));
+    const search = searchTerm => dispatch(getResult(searchTerm))
+
+// {try{dispatch(getResult(searchTerm));}catch (err){throw new Error(err.message)}}
+
+    //* initial load
+    useEffect(()=> {
+        search("example")
+    },[])
+
+    useEffect( () => {
+        if(error){console.log(error)}
+    })
 
     return (
         <div id='desktop-app' className='full-page flex-col'>
             <div id='top'>
                 <Logo isHome={true}/>
-                <div>
-                    <Breadcrumb Name={username} URL={`https://github.com/${username}/`} />
-                </div>
-                <div>
-                    <Breadcrumb Name={username} URL={`https://github.com/${username}/`}/>
-                    {/* <Breadcrumb Name="/authCodealong" URL="https://github.com/Crowy92/authCodealong/"/> */}
-                </div>
             </div>
             <div className='content'>
                 <div className='inner flex-row'>
                     <div className='col'>
                         <div id='left-up' className='card'>
-                            <Form getResult={search}/>
+                            <Form getResult={search} />
                         </div>
                         <div id='left-bottom' className=''>
-                            <UserStats username={username||"Crowy92"} />
+                            <UserStats username={username} userIconURL={userIconURL}/>
                         </div>
                     </div>
                     <div className='col'>

@@ -4,7 +4,7 @@ import RepoItem from '../RepoItem'
 export default function RepoList({results, setRepo}) {
 
     const handleClick = (key) => {
-        setRepo(results.filter(r => r.id === key)[0])
+        setRepo(prev => prev = results.filter(r => r.id === key)[0])
     };
 
     return (

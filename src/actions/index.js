@@ -2,7 +2,7 @@ import axios from 'axios';
 
 const loading = () => ({ type: 'LOADING'});
 
-const loadResult = ({username, results}) => ({ type: 'LOAD_RESULT', payload: {username, results} });
+const loadResult = ({userInfo, results}) => ({ type: 'LOAD_RESULT', payload: {userInfo, results} });
 
 export const getResult = searchTerm => {
     return async dispatch => {
@@ -20,11 +20,18 @@ export const getResult = searchTerm => {
                     created_at: r.created_at,
                     html_url: r.html_url
                 }
-            })
-            dispatch(loadResult({username: rawRepoData[0].owner.login, results: RepoData}))
+            });
+            dispatch(loadResult({
+                userInfo: {
+                    username: rawRepoData[0].owner.login,
+                    userIconURL: rawRepoData[0].owner.avatar_url
+                }, 
+                results: RepoData
+            }));
         } catch (err) {
             console.warn(err.message);
             dispatch({ type: 'SET_ERROR', payload: err.message })
+            // throw new Error(err.message);
         };
     };
 };
@@ -34,6 +41,7 @@ const fetchRepo = async searchTerm => {
         const { data } = await axios.get(`https://api.github.com/users/${searchTerm}/repos`);
         return data
     } catch (err) {
+        // throw new Error(err.response.status === 404 ? "no such user" : err.message)
         throw new Error(err.message)
     }
 }
