@@ -30,30 +30,37 @@ export default function Desktop() {
                     {/* <Breadcrumb Name="/authCodealong" URL="https://github.com/Crowy92/authCodealong/"/> */}
                 </div>
             </div>
-            <div className='flex-row grow content'>
-                <div className='col'>
-                    <div id='left-up' className='card'>
-                        <Form getResult={search}/>
+            <div className='content'>
+                <div className='inner flex-row'>
+                    <div className='col'>
+                        <div id='left-up' className='card'>
+                            <Form getResult={search}/>
+                        </div>
+                        <div id='left-bottom' className=''>
+                            <UserStats username={username} />
+                        </div>
                     </div>
-                    <div id='left-bottom' className='card'>
-                        <UserStats username={username} />
+                    <div className='col'>
+                        <div id='middle' className='results card'>
+                            <div className='sticky top'>
+                                <h3>Public repositories</h3>
+                            </div>
+                            <div className='scroll'>
+                                <RepoList results={results}/>
+                            </div>
+                        </div>
                     </div>
-                </div>
-                <div className='col'>
-                    <div id='middle' className='card'>
-                        <RepoList results={results}/>
-                    </div>
-                </div>
-                <div className='col'>
-                    <div id='right' className='card'>
-                        <RepoInfo />
-                        {/*name, 
-                        forks, 
-                        stargazers_count, 
-                        watchers_count,
-                        updated_at, 
-                        created_at,
-                        html_url */}
+                    <div className='col'>
+                        <div id='right' className='card'>
+                            <RepoInfo />
+                            {/*name, 
+                            forks, 
+                            stargazers_count, 
+                            watchers_count,
+                            updated_at, 
+                            created_at,
+                            html_url */}
+                        </div>
                     </div>
                 </div>
             </div>
