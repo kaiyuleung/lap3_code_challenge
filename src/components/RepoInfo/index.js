@@ -1,22 +1,39 @@
 import React from 'react'
 
-export default function RepoInfo({
-    name = "example", 
-    forks = 0, 
-    stargazers_count = 0, 
-    watchers_count = 0,
-    updated_at = "now", 
-    created_at = "now",
-    html_url = "#"
-}) {
+export default function RepoInfo({repo}) {
+
+    function ConvertTime(jsonTime){
+        const DateTime = new Date(jsonTime);
+        const options = {
+            date:{
+                weekday: 'short',
+                year: 'numeric',
+                month: 'short',
+                day: 'numeric'
+            },
+            time:{
+                timeZoneName:"short", 
+                timeZone: "UTC"
+            }}
+        return `${DateTime.toLocaleDateString('en-GB', options.date)} ${DateTime.toLocaleTimeString('en-GB', options.time)}`
+    }
+
+    const renderRepo = () => {
         return (
-            <div style={{color: "white"}}>RepoInfo
-                <p><a href={html_url}>{name}</a></p>
-                <p>{forks}</p>
-                <p>{stargazers_count}</p>
-                <p>{watchers_count}</p>
-                <p>{updated_at}</p>
-                <p>{created_at}</p>
+            <>
+                <p><a href={repo.html_url}>{repo.name}</a></p>
+                <p>Forks Count: {repo.forks}</p>
+                <p>Stargazers Count: {repo.stargazers_count}</p>
+                <p>Watchers Count: {repo.watchers_count}</p>
+                <p>Last Updated: {ConvertTime(repo.updated_at)}</p>
+                <p>Created at: {ConvertTime(repo.created_at)}</p>
+            </>
+        )
+    }
+
+        return (
+            <div style={{color: "white"}}>
+                {repo.id? renderRepo() : <p>{repo}</p>}
             </div>
         )
 }

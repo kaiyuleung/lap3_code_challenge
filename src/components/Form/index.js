@@ -1,14 +1,21 @@
 import React, {useState} from "react";
+import { useSelector } from "react-redux";
 import './style.css';
 
 export default function Form({getResult}) {
 
-    const [ username, setUsername ] = useState("Crowy92")
+    const [ username, setUsername ] = useState("example")
+    const error = useSelector(state => state.error);
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        getResult(username)
-        setUsername("");
+        try{
+            getResult(username);
+            setUsername("");
+        } catch (err) {
+            console.log(err);
+            alert("user not found")
+        }
     }
 
     const handleChange = (e) => {
@@ -22,6 +29,7 @@ export default function Form({getResult}) {
                 <br />
                 <input type="text" value={username} onChange={handleChange} />
             </label>
+            {error? <p>user not found</p> : <></>}
             <input type="submit" value="Submit" />
         </form>
     );
