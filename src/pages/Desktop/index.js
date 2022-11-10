@@ -16,7 +16,6 @@ export default function Desktop({ repo, setRepo }) {
     const username = useSelector(state => state.username);
     const userIconURL = useSelector(state => state.userIconURL);
     const results = useSelector(state => state.results);
-    const error = useSelector(state => state.error);
 
     const dispatch = useDispatch();
     const search = searchTerm => dispatch(getResult(searchTerm))
@@ -27,6 +26,8 @@ export default function Desktop({ repo, setRepo }) {
     // useEffect(()=> {
     //     search("example")
     // },[])
+
+
 
     return (
         <div id='desktop-app' className='full-page flex-col'>
@@ -47,7 +48,7 @@ export default function Desktop({ repo, setRepo }) {
                         <div id='middle' className='results card'>
                             <div className='sticky top'>
                                 <h3>Public repositories</h3>
-                                <Sort />
+                                <Sort setRepo={setRepo}/>
                             </div>
                             <div className='scroll'>
                                 <RepoList results={results} setRepo={setRepo}/>

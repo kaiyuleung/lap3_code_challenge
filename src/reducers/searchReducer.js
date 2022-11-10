@@ -2,14 +2,14 @@ const initState = {
     username: "example",
     userIconURL: "https://avatars.githubusercontent.com/u/57936?v=4",
     results: [{
-        id: "",
-        name: "",
+        id: "137494",
+        name: "test",
         forks: 0,
         stargazers_count: 0,
         watchers_count: 0,
-        updated_at: "",
-        created_at: "",
-        html_url: ""
+        updated_at: "2022-10-30T16:35:13Z",
+        created_at: "2009-02-25T19:02:12Z",
+        html_url: "https://github.com/example/test"
     }],
     loading: false,
     error: false

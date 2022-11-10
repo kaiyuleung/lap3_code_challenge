@@ -1,14 +1,17 @@
 import React from 'react'
-import { useDispatch } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 
 
-export default function Sort() {
+export default function Sort({setRepo}) {
+
+    const results = useSelector(state => state.results);
 
     const dispatch = useDispatch();
 
     function handleChange(e){
         e.preventDefault();
         dispatch({ type: 'SORT', payload: e.target.value })
+        setRepo(results[0])
     }
 
     return (

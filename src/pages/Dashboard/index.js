@@ -20,7 +20,7 @@ export default function Dashboard({setRepo}) {
                     <UserStats username={username} userIconURL={userIconURL}/>
                 </div>
                 <div>
-                    <Sort />
+                    <Sort setRepo={setRepo}/>
                     <RepoList results={results} setRepo={setRepo}/>
                 </div>
             </main>
