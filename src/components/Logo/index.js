@@ -4,6 +4,7 @@ import './style.css'
 const Logo = ({isHome}) => {
     return (
         <div className='logo'>
+            <img src='../../favicon.png'></img>
             <span style={{fontSize: isHome? "72px" : "23px"}}>GitHub Stalker</span>
             <h2>Choose a GitHub user to <span style={{
                 display: isHome? "inline" : "none", 

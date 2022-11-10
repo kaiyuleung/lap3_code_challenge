@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 import { getResult } from '../../actions';
 import { Form, Logo } from '../../components'
 
-
+import './style.css'
 
 export default function Home() {
 
@@ -11,9 +11,13 @@ export default function Home() {
     const search = searchTerm => dispatch(getResult(searchTerm))
     
     return (
-        <div>
-            <Logo isHome={true} />
-            <Form getResult={search} />
+        <div className='home'>
+            <header>
+                <Logo isHome={true} />
+            </header>
+            <main className='card'>
+                <Form getResult={search} />
+            </main>
         </div>
     )
 }
