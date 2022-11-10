@@ -1,10 +1,16 @@
 import React, {useState} from "react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom'
 import './style.css';
 
 export default function Form({getResult}) {
 
-    const [ username, setUsername ] = useState("example")
+    const dispatch = useDispatch();
+    const USR = useSelector(state => state.username);
+
+    const navigate = useNavigate()
+
+    const [ username, setUsername ] = useState(USR)
     const error = useSelector(state => state.error);
 
     const handleSubmit = (e) => {
@@ -12,6 +18,7 @@ export default function Form({getResult}) {
         try{
             getResult(username);
             setUsername("");
+            navigate(`/dashboard`)
         } catch (err) {
             console.log(err);
             alert("user not found")

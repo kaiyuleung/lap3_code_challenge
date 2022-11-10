@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 
 //* components and styles
 import { Form, UserStats, Logo, RepoList, RepoInfo } from '../../components'
@@ -9,10 +9,8 @@ import { useSelector, useDispatch } from 'react-redux';
 import { getResult } from '../../actions';
 
 
-export default function Desktop() {
+export default function Desktop({ repo, setRepo }) {
 
-    //* state for repoInfo
-    const [repo, setRepo] = useState("Please select one repo to see the stats.")
 
     //* Get state from reducer:
     const username = useSelector(state => state.username);
@@ -26,13 +24,9 @@ export default function Desktop() {
 // {try{dispatch(getResult(searchTerm));}catch (err){throw new Error(err.message)}}
 
     //* initial load
-    useEffect(()=> {
-        search("example")
-    },[])
-
-    useEffect( () => {
-        if(error){console.log(error)}
-    })
+    // useEffect(()=> {
+    //     search("example")
+    // },[])
 
     return (
         <div id='desktop-app' className='full-page flex-col'>

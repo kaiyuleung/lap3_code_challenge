@@ -1,6 +1,6 @@
 const initState = {
     username: "example",
-    userIconURL: "",
+    userIconURL: "https://avatars.githubusercontent.com/u/57936?v=4",
     results: [{
         id: "",
         name: "",

@@ -1,10 +1,15 @@
 import React from 'react'
 import RepoItem from '../RepoItem'
+import { useNavigate } from 'react-router-dom'
+
 
 export default function RepoList({results, setRepo}) {
+    
+    const navigate = useNavigate()
 
     const handleClick = (key) => {
         setRepo(prev => prev = results.filter(r => r.id === key)[0])
+        navigate(`/repo`)
     };
 
     return (

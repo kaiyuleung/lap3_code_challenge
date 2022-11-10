@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useMediaQuery } from 'react-responsive';
 
 //* Router Stuff
@@ -33,6 +33,10 @@ return isTabletAndBelow ? children : null
 
 
 function App() {
+
+  
+    //* state for repoInfo
+    const [repo, setRepo] = useState("Please select one repo to see the stats.")
   
   return(
     <>
@@ -40,15 +44,15 @@ function App() {
       <main>
         <Routes>
           <Route path="/" element={<Home />}/>
-          <Route path="/:username" element={<Dashboard />}/>
-          <Route path="/repo" element={<Repo />}/>
+          <Route path="/dashboard" element={<Dashboard setRepo={setRepo} />}/>
+          <Route path="/repo" element={<Repo repo={repo}/>}/>
           <Route path="*" element={<NotFound />}/>
         </Routes>
       </main>
     </LBP>
 
     <UBP>
-      <Desktop />
+      <Desktop repo={repo} setRepo={setRepo} />
     </UBP>
     </>
   )
@@ -56,8 +60,6 @@ function App() {
 
 export default App;
 
-
-//* Reference:
 // import { Counter } from './features/counter/Counter';
 // return (
 //   <div className="App">

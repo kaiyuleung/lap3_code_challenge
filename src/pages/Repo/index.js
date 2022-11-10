@@ -1,11 +1,16 @@
-//! not ready for review
 import React from 'react'
-import { BackBtn } from '../../components'
+import { useSelector } from 'react-redux';
+import { BackBtn, Logo, RepoInfo, Breadcrumb } from '../../components'
 
-export default function Repo() {
+export default function Repo({repo}) {
+    const username = useSelector(state => state.username);
+
     return (
-        <div>Repo
+        <>
+            <Logo isHome={false} />
             <BackBtn />
-        </div>
+            <Breadcrumb Name={username} URL={`https://github.com/${username}/`} />
+            <RepoInfo repo={repo} />
+        </>
     )
 }
