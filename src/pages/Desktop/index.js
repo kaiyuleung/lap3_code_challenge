@@ -1,8 +1,11 @@
 import React, { useState } from 'react'
+
+//* components and styles
 import { Form, UserStats, Logo, RepoList, RepoInfo } from '../../components'
 import Breadcrumb from '../../components/Breadcrumb';
 import './style.css';
 
+//* redux thing
 import { useSelector, useDispatch } from 'react-redux';
 import { getResult } from '../../actions';
 
@@ -15,7 +18,6 @@ export default function Desktop() {
     const error = useSelector(state => state.error);
 
     const dispatch = useDispatch();
-    
     const search = searchTerm => dispatch(getResult(searchTerm));
 
     return (

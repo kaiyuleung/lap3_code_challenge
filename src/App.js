@@ -9,7 +9,7 @@ import './App.css';
 import { NavBar } from './components';
 import { Home, Dashboard, Repo, NotFound, Desktop } from './pages';
 
-//* Breakpoint
+//* Breakpoint for responsiveness
 const Breakpoint = 1240;
 
 const useDesktopMediaQuery = () =>
@@ -18,12 +18,14 @@ useMediaQuery({ query: `(min-width: ${Breakpoint}px)` })
 const useTabletAndBelowMediaQuery = () =>
 useMediaQuery({ query: `(max-width: ${Breakpoint-1}px)` })
 
+//Desktop
 const UBP = ({ children }) => {
 const isDesktop = useDesktopMediaQuery()
 
 return isDesktop ? children : null
 }
 
+//Tablet and Below
 const LBP = ({ children }) => {
 const isTabletAndBelow = useTabletAndBelowMediaQuery()
 
