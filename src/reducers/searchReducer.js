@@ -9,7 +9,8 @@ const initState = {
         watchers_count: 0,
         updated_at: "2022-10-30T16:35:13Z",
         created_at: "2009-02-25T19:02:12Z",
-        html_url: "https://github.com/example/test"
+        html_url: "https://github.com/example/test",
+        description: "test"
     }],
     loading: false,
     error: false

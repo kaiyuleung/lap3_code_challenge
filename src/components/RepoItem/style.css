@@ -12,8 +12,9 @@ a {
     text-decoration: none;
 }
 
+
 .repo-item a, .repo-item a:visited {
-    color: black;
+    color: gold;
 }
 
 a:hover {

@@ -1,4 +1,5 @@
 import React from 'react'
+import './style.css'
 
 export default function RepoInfo({repo}) {
 
@@ -22,6 +23,7 @@ export default function RepoInfo({repo}) {
         return (
             <>
                 <p><a href={repo.html_url}>{repo.name}</a></p>
+                <p>{repo.description}</p>
                 <p>Forks Count: {repo.forks}</p>
                 <p>Stargazers Count: {repo.stargazers_count}</p>
                 <p>Watchers Count: {repo.watchers_count}</p>

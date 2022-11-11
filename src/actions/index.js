@@ -18,7 +18,8 @@ export const getResult = searchTerm => {
                     watchers_count: r.watchers_count,
                     updated_at: r.updated_at,
                     created_at: r.created_at,
-                    html_url: r.html_url
+                    html_url: r.html_url,
+                    description: r.description
                 }
             });
             dispatch(loadResult({

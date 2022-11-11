@@ -1,5 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useMediaQuery } from 'react-responsive';
+import { useDispatch } from 'react-redux';
+import { getResult } from './actions';
 
 //* Router Stuff
 import { Routes, Route } from 'react-router-dom';
@@ -17,14 +19,14 @@ useMediaQuery({ query: `(min-width: ${Breakpoint}px)` })
 const useTabletAndBelowMediaQuery = () =>
 useMediaQuery({ query: `(max-width: ${Breakpoint-1}px)` })
 
-//Desktop
+// Desktop
 const UBP = ({ children }) => {
 const isDesktop = useDesktopMediaQuery()
 
 return isDesktop ? children : null
 }
 
-//Tablet and Below
+// Tablet and Below
 const LBP = ({ children }) => {
 const isTabletAndBelow = useTabletAndBelowMediaQuery()
 
@@ -32,12 +34,22 @@ return isTabletAndBelow ? children : null
 }
 
 
+
 function App() {
 
+  const dispatch = useDispatch();
+  const search = searchTerm => dispatch(getResult(searchTerm))
+
+  //* initial load
+  useEffect(()=> {
+    search("crowy92")
+  },[])
+
+  //* state for repoInfo
+  const [repo, setRepo] = useState("Please select one repo to see the stats.")
   
-    //* state for repoInfo
-    const [repo, setRepo] = useState("Please select one repo to see the stats.")
-  
+
+
   return(
     <>
     <LBP>
@@ -59,54 +71,3 @@ function App() {
 }
 
 export default App;
-
-// import { Counter } from './features/counter/Counter';
-// return (
-//   <div className="App">
-//     <header className="App-header">
-//       <img src={logo} className="App-logo" alt="logo" />
-//       <Counter />
-//       <p>
-//         Edit <code>src/App.js</code> and save to reload.
-//       </p>
-//       <span>
-//         <span>Learn </span>
-//         <a
-//           className="App-link"
-//           href="https://reactjs.org/"
-//           target="_blank"
-//           rel="noopener noreferrer"
-//         >
-//           React
-//         </a>
-//         <span>, </span>
-//         <a
-//           className="App-link"
-//           href="https://redux.js.org/"
-//           target="_blank"
-//           rel="noopener noreferrer"
-//         >
-//           Redux
-//         </a>
-//         <span>, </span>
-//         <a
-//           className="App-link"
-//           href="https://redux-toolkit.js.org/"
-//           target="_blank"
-//           rel="noopener noreferrer"
-//         >
-//           Redux Toolkit
-//         </a>
-//         ,<span> and </span>
-//         <a
-//           className="App-link"
-//           href="https://react-redux.js.org/"
-//           target="_blank"
-//           rel="noopener noreferrer"
-//         >
-//           React Redux
-//         </a>
-//       </span>
-//     </header>
-//   </div>
-// );

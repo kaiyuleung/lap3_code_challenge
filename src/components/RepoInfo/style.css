@@ -1,0 +1,11 @@
+p:first-child, p:nth-child(2){
+    text-align: center;
+    margin: 20px 0 20px 0;
+}
+
+
+p:first-child a, p:first-child a:visited{
+    color: #38BDAE;
+    font-weight: bold;
+    font-size: larger;
+}
