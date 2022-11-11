@@ -1,11 +1,10 @@
 import React, {useState} from "react";
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom'
 import './style.css';
 
 export default function Form({getResult}) {
 
-    const dispatch = useDispatch();
     const USR = useSelector(state => state.username);
 
     const navigate = useNavigate()

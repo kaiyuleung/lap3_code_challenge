@@ -14,9 +14,11 @@ a {
 
 
 .repo-item a, .repo-item a:visited {
-    color: gold;
+    color: rgb(0, 0, 0);
+    opacity: 0.5;
 }
 
-a:hover {
+.repo-item a:hover {
     transform: translateX(4px);
+    opacity: 0.8;
 }
