@@ -1,0 +1,26 @@
+.home {
+    background: #010409;
+    color: #f0f6fc;
+    min-height: 100vh;
+}
+
+.home header {
+    background: #161b22;
+}
+
+.home main {
+    width: 80%;
+    margin: 16px auto;
+    padding: 32px;
+}
+
+.card {
+    border: 1px solid #30363d;
+    background: #0d1117;
+    border-radius: 6px;
+    padding: var(--p-md);
+    position: relative;
+    min-height: 10%;
+    max-height: 100%;
+    overflow: hidden;
+}

@@ -1,0 +1,23 @@
+.dashboard {
+    background: #010409;
+    color: #f0f6fc;
+}
+
+.dashboard header {
+    background: #161b22;
+}
+
+.dashboard main {
+    display: block;
+    width: 100%;
+}
+
+@media screen and (width > 600px) {
+    .dashboard main {
+        display: flex;
+    }
+
+    .dashboard main > div {
+        width: 50%;
+    }
+}
