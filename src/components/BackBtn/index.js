@@ -1,10 +1,11 @@
 import React from 'react';
 import { useNavigate } from 'react-router';
 
+import './style.css'
 
 export default function BackBtn() {
     const navigate = useNavigate();
     return (
-        <button onClick={() => navigate(-1)}>Back</button>
+        <button className='backbtn' onClick={() => navigate(-1)}>&larr; Go back</button>
     )
 }
