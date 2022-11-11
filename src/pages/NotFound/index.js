@@ -4,7 +4,7 @@ import { BackBtn } from '../../components'
 
 export default function NotFound() {
     return (
-        <div>NotFound
+        <div style={{color: "white"}}>NotFound
             <BackBtn />
         </div>
     )

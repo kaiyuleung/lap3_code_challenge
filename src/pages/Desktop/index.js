@@ -22,7 +22,6 @@ export default function Desktop({ repo, setRepo }) {
 
 // {try{dispatch(getResult(searchTerm));}catch (err){throw new Error(err.message)}}
 
-    //* initial load
     // useEffect(()=> {
     //     search("example")
     // },[])
